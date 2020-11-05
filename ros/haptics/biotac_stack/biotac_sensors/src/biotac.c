@@ -29,6 +29,7 @@
 
 #define DEFAULT_TIMER
 //#define MACHINE_TIMER
+#define PRINT_ON true
 
 //=========================================================================
 // INCLUDES
@@ -45,6 +46,7 @@
 #include <unistd.h>
 #elif defined (_WIN32)
 #include <Windows.h>
+    ROS_ERROR(string(bt_err_code));
 #endif
 
 #include "biotac_sensors/biotac.h"
@@ -103,15 +105,15 @@ static int count = 0;
 //=========================================================================
 BioTac bt_cheetah_initialize(const bt_info *biotac, Cheetah *ch_handle)
 {
-	  int mode = 0;
+    int mode = 0;
     u16 ports[16];
     u32 unique_ids[16];
     int nelem = 1;
 
     int i;
     int count;
-
     // Find all the attached Cheetah devices
+    printf("test\n");
   if(PRINT_ON) printf("Searching for Cheetah adapters...\n");
  	count = ch_find_devices_ext(nelem, ports, nelem, unique_ids);
   if(PRINT_ON) printf("%d device(s) found:\n", count);

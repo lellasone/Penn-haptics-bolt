@@ -120,6 +120,7 @@ void BioTacHandClass::initBioTacSensors()
       loop_rate_cheetah.sleep();
     }
   }
+  ROS_INFO("Cheetah Found Succesfully");
 
   bt_err_code = BT_NO_BIOTAC_DETECTED;
   ros::Rate loop_rate_biotac_connect(1);

@@ -23,9 +23,9 @@ rosbuild_genmsg()
 
 #common commands for building c++ executables and libraries
 #rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
-#target_link_libraries(${PROJECT_NAME} another_library)
 #rosbuild_add_boost_directories()
 #rosbuild_link_boost(${PROJECT_NAME} thread)
 rosbuild_add_executable(biotac_pub src/biotac.c src/cheetah.c src/biotac_hand_class.cpp src/biotac_pub.cpp)
 
+target_link_libraries(biotac_pub ${catkin_LIBRARIES} -ldl)
 
